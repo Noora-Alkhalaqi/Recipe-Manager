@@ -3,14 +3,17 @@ import requests
 import streamlit as st
 from datetime import date
 from openai import OpenAI
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 
-# Load API key from .env file
-load_dotenv(".env")
+# # Load API key from .env file
+# load_dotenv(".env")
 
-openai_api_key = os.getenv("api_key")
+# openai_api_key = os.getenv("api_key")
 
+openai_api_key = st.secrets["OPENAI_API_KEY"]
+if not openai_api_key:
+    raise ValueError("OPENAI_API_KEY")
 
 # Connect to OpenRouter
 client = OpenAI(
