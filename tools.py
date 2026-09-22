@@ -31,7 +31,7 @@ def get_random_hist(df, name_of_col):
     '''
     Returns a random row from the given DataFrame sorted by the specified column (date).
     '''
-    data = df.sort_values(by= name_of_col).head(3)
+    data = df.sort_values(by= name_of_col).tail(3)
     return data.sample()
 # -------------------------------------------------------------------------------------------------------
     
